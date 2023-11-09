@@ -1,6 +1,5 @@
 import React from 'react'
-import { Heading } from '@chakra-ui/react'
-import ItemList from "./ItemList"
+import ItemList from '../../components/ItemList/ItemList.jsx';
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 

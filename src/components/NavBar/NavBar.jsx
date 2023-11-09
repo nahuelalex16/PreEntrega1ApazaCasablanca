@@ -1,5 +1,5 @@
 import React from 'react'
-import CartWidget from './CartWidget'
+import CartWidget from '../CartWidget/CartWidget'
 import { Flex, Spacer, Box, Button, Heading, ButtonGroup } from '@chakra-ui/react'
 import {
   Menu,
@@ -24,7 +24,7 @@ const NavBar = () => {
         <Flex minWidth='max-content' alignItems='center' gap='2' padding='2' bgColor='gray.100'>
           <Box p='2'>
 
-            <Link>
+            <Link to={`/`}>
               <Heading fontSize='xl' fontWeight='bold' color='#2874A6'>My Ecommerce</Heading>
             </Link>
             
@@ -32,13 +32,13 @@ const NavBar = () => {
           <Spacer/>
           <ButtonGroup gap='2'>
             
-            <Link to={"/contaco"}>
-              <Button color='#5DADE2'>Contacto</Button>
-            </Link>
+{/*             <Link to={"/contaco"}>
+ */}              <Button color='#5DADE2'>Contacto</Button>
+{/*             </Link> */}
             
-            <Link to={"/catalogo"}>
+{/*             <Link to={"/catalogo"}> */}
               <Button color='#5DADE2'>Catalogo</Button> 
-            </Link>
+{/*             </Link> */}
                        
           </ButtonGroup>
 
@@ -50,9 +50,9 @@ const NavBar = () => {
           </Menu>
 
           <Box>
-            <Link to={"/carrito"}>
+            {/* <Link to={"/carrito"}> */}
               <CartWidget/>
-            </Link>
+            {/* </Link> */}
           </Box>
           
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Flex, Wrap } from '@chakra-ui/react'
-import Item from './Item'
+import Item from '../Item/Item.jsx'
 
 const ItemList = ({catalogo}) => {
   return (

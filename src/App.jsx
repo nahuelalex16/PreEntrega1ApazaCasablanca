@@ -1,12 +1,8 @@
 import * as React from 'react'
-import NavBar from './components/NavBar'
-import ItemListContainer from './components/ItemListContainer'
-import ItemDetailContainer from './components/ItemDetailContainer'
-import Home from './components/Home'
-import Cart from './components/Cart'
-import Contact from './components/Contact'
+import NavBar from './components/NavBar/NavBar'
+import ItemListContainer from './pages/ItemListContainer/ItemListContainer'
+import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer'
 import { Routes, Route } from 'react-router-dom'
-
 
 const App = () => {
   return (
@@ -15,7 +11,7 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<ItemListContainer/>}/>
         <Route exact path="/category/:categoria" element={<ItemListContainer/>}/>
-        <Route exact path="/item/:id" elememnt={<ItemDetailContainer/>}/>
+        <Route exact path="/item/:id" element={<ItemDetailContainer/>}/>
       </Routes>
     </>
   )

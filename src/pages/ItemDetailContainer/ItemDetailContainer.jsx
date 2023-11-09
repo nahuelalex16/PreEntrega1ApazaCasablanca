@@ -1,5 +1,6 @@
 import React from 'react'
-import ItemDetail from "./ItemDetail";
+import ItemDetail from '../../components/ItemDetail/ItemDetail.jsx';
+import { useState, useEffect } from 'react'
 
 const ItemDetailContainer = () => { 
 
@@ -10,7 +11,7 @@ const ItemDetailContainer = () => {
     return data
   };
 
-  const [productos, setProductos] = useState([])
+  const [productos, setProductos] = useState([]);
 
   useEffect(() => {
     getProductos().then((productos) => setProductos(productos))

@@ -1,36 +1,51 @@
 import React from 'react'
-import ItemCount from './ItemCount'
+import ItemCount from '../ItemCount/ItemCount'
 import { useParams } from 'react-router-dom';
 import { Card, Image, Stack, CardBody, Heading, Text, CardFooter} from '@chakra-ui/react'
+import { useState, useEffect } from 'react'
+
 
 
 const ItemDetail = (productos) => {
     const { id } = useParams();
-    const productosFiltro = productos.filter((producto) => producto.id == id);
+
+    const getProducto = async () =>{
+        const res = await fetch(`https://fakestoreapi.com/products/${id}`)
+        const data = await res.json()
+    
+        return data
+    };
+
+    const [producto, setProducto] = useState([]);
+
+    useEffect(() => {
+      getProducto().then((producto) => setProducto(producto))
+    }, []);
+    
+    /* const productoFiltro = productos.filter((prod) => prod.id == id); */
+    const { image, title, description } = producto;
+    console.log(producto)
 
   return (
-    <>
-    {productosFiltro.map((producto) => {
-        <div key={producto.id}>
-            
-            <Card
+    <div key={id}>
+        <Card
             direction={{ base: 'column', sm: 'row' }}
             overflow='hidden'
             variant='outline'
-            >
+        >
             <Image
                 objectFit='cover'
                 maxW={{ base: '100%', sm: '200px' }}
-                src={producto.image}
-                alt={producto.title}
+                src={image}
+                alt={title}
             />
 
             <Stack>
                 <CardBody>
-                <Heading size='md'>{producto.title}</Heading>
+                <Heading size='md'>{title}</Heading>
 
                 <Text py='2'>
-                    {producto.description}
+                    {description}
                 </Text>
                 </CardBody>
 
@@ -39,9 +54,7 @@ const ItemDetail = (productos) => {
                 </CardFooter>
             </Stack>
         </Card>
-        </div>
-    })}
-    </>
+    </div>
   )
 };
 
