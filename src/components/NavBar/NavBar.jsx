@@ -45,7 +45,22 @@ const NavBar = () => {
           <Menu>
             <MenuButton as={Button} rightIcon={<ChevronDownIcon/>}>Categorias</MenuButton>
             <MenuList>
-              <MenuItem>categoria1</MenuItem>
+              <Link to={"/category/men's clothing"}>
+                <MenuItem>Ropa de Hombre</MenuItem>
+              </Link>
+                
+              <Link to={'/category/jewelery'}>
+                <MenuItem>Joyeria</MenuItem>
+              </Link>
+
+              <Link to={'/category/electronics'}>
+                <MenuItem>Electronicos</MenuItem>
+              </Link>
+
+              <Link to={"/category/women's clothing"}>
+                <MenuItem>Ropa de Mujer</MenuItem>
+              </Link>
+  
             </MenuList>
           </Menu>
 
