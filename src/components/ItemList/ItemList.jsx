@@ -10,12 +10,13 @@ const ItemList = ({catalogo}) => {
           {catalogo.map((prod) => (
                 <Item
                     key={prod.id}
-                    id={prod.id}
+                    /* id={prod.id}
                     nombre={prod.title}
                     precio={prod.price}
                     img={prod.image}
                     categoria={prod.category}
-                    stock={prod.count}
+                    stock={prod.rating.count} */
+                    producto={prod}
                     />
           ))}
           </Flex>

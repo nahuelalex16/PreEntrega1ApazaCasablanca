@@ -1,18 +1,26 @@
 import React from 'react'
-import { useState } from "react";
-import { Box, Flex, Button } from '@chakra-ui/react'
+import { Box, Flex, Button, Center } from '@chakra-ui/react'
 
-const ItemCount = () => {
-    const [cantidad, setCantidad] = useState(1)
+const ItemCount = ({cantidad, setCantidad, stock}) => {
+
+  const sumar = () => {
+    if (cantidad === stock) return;
+    setCantidad(cantidad+1)
+  }
+
+  const restar = () => {
+    if (cantidad === 0) return;
+    setCantidad(cantidad-1)
+  }
 
   return (
     <div>
         <Flex gap='2'>
-            <Button variant='outline' bg='gray.100' onClick={() => cantidad > 1 ? setCantidad(cantidad - 1) : true}>-</Button>
-            <Box borderRadius='md' bg='gray.100' maxW='sm' p='2'>
+            {cantidad === 0 ? <Button isDisabled variant='outline' bg='gray.100' onClick={restar}>-</Button> : <Button variant='outline' bg='gray.100' onClick={restar}>-</Button>}
+            <Box borderRadius='md' bg='gray.100' maxW='sm' py='2' px='5' textAlign='center'>
                 {cantidad}
             </Box>
-            <Button variant='outline' bg='gray.100' onClick={() => setCantidad(cantidad + 1)}>+</Button>
+            {cantidad === stock ? <Button isDisabled variant='outline' bg='gray.100' onClick={sumar}>+</Button> : <Button variant='outline' bg='gray.100' onClick={sumar}>+</Button> }
         </Flex>
     </div>
   )

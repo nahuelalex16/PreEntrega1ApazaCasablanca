@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import CartWidget from '../CartWidget/CartWidget'
 import { Flex, Spacer, Box, Button, Heading, ButtonGroup } from '@chakra-ui/react'
 import {
@@ -13,9 +13,12 @@ import {
 } from "@chakra-ui/react"
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import { Link, useParams } from 'react-router-dom'
+import { CartContext } from '../../context/CartContext'
 
 const NavBar = () => {
-  const {} = useParams()
+  const {} = useParams();
+
+  const { cantidadProductos } = useContext(CartContext);
 
   return (
     <div>
@@ -65,9 +68,9 @@ const NavBar = () => {
           </Menu>
 
           <Box>
-            {/* <Link to={"/carrito"}> */}
-              <CartWidget/>
-            {/* </Link> */}
+            <Link to={"/carrito"}>
+              <CartWidget cantidad={cantidadProductos}/>
+            </Link>
           </Box>
           
 
